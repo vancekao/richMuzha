@@ -1,0 +1,28 @@
+import type { DataRecord, PublicSnapshot } from "./types";
+const base = { isActive: true, isDemo: true, createdAt: "2026-08-01T00:00:00.000Z", updatedAt: "2026-09-01T00:00:00.000Z" };
+export const demoEvent: DataRecord = { id: "evt-demo-autumn", title: "2026 文山秋日探索季（示範）", summary: "沿著景美溪、木柵街區與貓空茶山完成 5 格任務。", startAt: "2026-09-01", endAt: "2026-11-30", status: "published", rules: "每個關卡每位會員限領一次點數；獎品數量有限。", heroImage: "/wenshan-map.png", ...base };
+export const demoShops: DataRecord[] = [
+  { id: "shop-demo-tea", eventId: demoEvent.id, name: "山城茶屋（示範店家）", category: "茶飲", address: "台北市文山區指南路三段 00 號（示範）", phone: "02-0000-0001", description: "認識在地製茶，也可以坐下來看山景。", openHours: "週二至週日 10:00–18:00", bonusPoints: 20, latitude: "24.968", longitude: "121.589", ...base },
+  { id: "shop-demo-book", eventId: demoEvent.id, name: "景美小書房（示範店家）", category: "書店", address: "台北市文山區景文街 00 號（示範）", phone: "02-0000-0002", description: "以地方故事與親子閱讀為主題的獨立書店。", openHours: "每日 11:00–20:00", bonusPoints: 10, latitude: "24.992", longitude: "121.541", ...base },
+  { id: "shop-demo-snack", eventId: demoEvent.id, name: "木柵老味點心（示範店家）", category: "餐飲", address: "台北市文山區木柵路三段 00 號（示範）", phone: "02-0000-0003", description: "以米食與季節食材製作的小點。", openHours: "週一至週六 09:00–17:00", bonusPoints: 15, latitude: "24.989", longitude: "121.570", ...base },
+];
+export const demoChallenges: DataRecord[] = [
+  { id: "challenge-demo-river", eventId: demoEvent.id, shopId: null, title: "景美溪畔觀察站（示範）", category: "生態", description: "找一處安全的河岸觀察點，認識景美溪的水岸環境。", question: "下雨後河水變混濁，最可能是哪一種現象？", answer: "泥沙沖刷", checkpointCode: "RIVER26", points: 80, sortOrder: 1, ...base },
+  { id: "challenge-demo-oldshop", eventId: demoEvent.id, shopId: "shop-demo-snack", title: "木柵老店尋味（示範）", category: "文化", description: "走訪街區店家，從飲食認識地方生活。", question: "請向店員索取通關碼。", answer: "木柵好味", checkpointCode: "MUZHA26", points: 50, sortOrder: 2, ...base },
+  { id: "challenge-demo-tea", eventId: demoEvent.id, shopId: "shop-demo-tea", title: "貓空茶香小教室（示範）", category: "產業", description: "觀察茶葉外型與香氣，認識文山包種茶。", question: "文山包種茶主要屬於哪一類茶？", answer: "部分發酵茶", checkpointCode: "TEA2026", points: 100, sortOrder: 3, ...base },
+  { id: "challenge-demo-books", eventId: demoEvent.id, shopId: "shop-demo-book", title: "地方故事書架（示範）", category: "閱讀", description: "找到一本提到文山地景的書。", question: "請向店員索取通關碼。", answer: "閱讀文山", checkpointCode: "BOOK26", points: 60, sortOrder: 4, ...base },
+  { id: "challenge-demo-gondola", eventId: demoEvent.id, shopId: null, title: "纜車視角找山形（示範）", category: "地理", description: "在安全位置觀察盆地與山稜。", question: "纜車上升時，城市景觀會如何改變？", answer: "視野變廣", checkpointCode: "GONDOLA26", points: 90, sortOrder: 5, ...base },
+];
+export const demoAnnouncements: DataRecord[] = [
+  { id: "notice-demo-weather", eventId: demoEvent.id, title: "午後山區可能降雨（示範公告）", content: "前往貓空請攜帶雨具，雷雨時暫停戶外關卡。", level: "warning", publishAt: "2026-09-12T09:00:00+08:00", ...base },
+  { id: "notice-demo-weekend", eventId: demoEvent.id, title: "週末加碼 20 點（示範公告）", content: "本週六完成任一合作店家關卡，可獲得額外點數。", level: "info", publishAt: "2026-09-10T09:00:00+08:00", ...base },
+];
+export const demoPrizes: DataRecord[] = [
+  { id: "prize-demo-sticker", eventId: demoEvent.id, name: "文山路線貼紙組（示範獎品）", description: "五款街區地標防水貼紙。", pointsCost: 300, stock: 50, imageUrl: null, redemptionNote: "請至活動服務台出示核銷碼。", ...base },
+  { id: "prize-demo-bag", eventId: demoEvent.id, name: "溪畔散步帆布袋（示範獎品）", description: "適合一日散步的輕量帆布袋。", pointsCost: 800, stock: 20, imageUrl: null, redemptionNote: "請至活動服務台出示核銷碼。", ...base },
+  { id: "prize-demo-cup", eventId: demoEvent.id, name: "貓空限定茶杯（示範獎品）", description: "活動限定色釉茶杯。", pointsCost: 1500, stock: 8, imageUrl: null, redemptionNote: "需於活動結束前完成核銷。", ...base },
+];
+export const demoMember: DataRecord = { id: "member-demo-wen", memberCode: "WENSHAN001", name: "陳小文（示範會員）", phone: "0900-000-001", email: "demo@example.com", points: 1280, status: "active", ...base };
+export const demoRedemptions: DataRecord[] = [{ id: "redeem-demo-001", memberId: demoMember.id, memberName: demoMember.name, prizeId: "prize-demo-sticker", prizeName: "文山路線貼紙組（示範獎品）", pointsCost: 300, claimCode: "WS-DEMO-2601", status: "pending", requestedAt: "2026-09-14T10:20:00+08:00", verifiedAt: null, note: "示範核銷單" }];
+export const demoSnapshot: PublicSnapshot = { demo: true, event: demoEvent, shops: demoShops, challenges: demoChallenges, announcements: demoAnnouncements, prizes: demoPrizes, member: demoMember, completedChallengeIds: ["challenge-demo-river", "challenge-demo-oldshop"], redemptions: demoRedemptions };
+export const demoEntities = { events: [demoEvent], shops: demoShops, challenges: demoChallenges, announcements: demoAnnouncements, prizes: demoPrizes, members: [demoMember] };
