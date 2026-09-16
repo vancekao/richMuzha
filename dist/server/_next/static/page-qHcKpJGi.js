@@ -1,0 +1,1 @@
+import{t as e}from"./rsc-CHQTa7dG.js";import{t}from"./framework~index~page~page~layout~page~app-page-cache-render~app-page-cache~app-route-handle~mmx89tzp-D4pOOWJs.js";var n=e(()=>{throw Error(`Unexpectedly client reference export 'PlayerApp' is called on server`)},`67e21cdf650c`,`PlayerApp`),r=t();function i(){return(0,r.jsx)(n,{})}export{i as default};
